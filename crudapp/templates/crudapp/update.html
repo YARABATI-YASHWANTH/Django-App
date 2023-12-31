@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Register Page</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+	<script type="text/javascript" src="{% static 'js/bootstarp.bundle.min.js' %}"></script>
+</head>
+<body>
+	<div class="container card card-body mt-5 col-md-6 bg-warning">
+		<center><h2 class="text-center bg-info">Data updation Form</h2></center>
+		<center><form method="POST">
+			{% csrf_token %}
+			<div class="form-group">
+				<label>name</label>
+				<input type="text" name="name" placeholder="Enter your user name" class="form-control my-3" value="{{data.name}}"><br><br>
+			</div>
+			<div class="form-group">
+				<label>rollnumber</label>
+				<input type="number" name="rollnum" placeholder="Enter your roll number" class="form-control my-3" value="{{data.rollnum}}"><br><br>
+			</div>
+			<div class="form-group">
+				<label>age</label>
+				<input type="number" name="age" placeholder="Enter your Age" class="form-control my-3" value="{{data.age}}"><br><br>
+			</div>
+			<div class="form-group">
+				<label>mobile number</label>
+				<input type="number" name="mobile" placeholder="Enter your mobile number" class="form-control my-3" value="{{data.mobile}}"><br><br>
+			</div>
+			<div class="form-group">
+				<label>E-mail</label>
+				<input type="E-mail" name="email" placeholder="Enter your E-mail id" class="form-control my-3" value="{{data.email}}"><br><br>
+			</div>
+			<div class="form-group">
+				<label>address</label>
+				<input type="text" name="address" placeholder="Enter your address" class="form-control my-3" value="{{data.address}}"><br><br>
+			</div>
+			<button class="btn btn-primary">update</button>
+<!---->
+			
+		</form></center>
+	</div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title> data page</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+	<script type="text/javascript" src="{% static 'js/bootstarp.bundle.min.js' %}"></script>
+</head>
+<body>
+	<div class="container mt-5 bf-info">
+		<h2 class="text-center bg-primary">Students registration Data</h2>
+		<a href="{% url 'insertion' %}" class="btn btn-secondary">Register</a>
+		<table class="table table-bordererd bg-info">
+			<thead>
+				<tr>
+					<th>S.no</th>
+					<th>username</th>
+					<th>rollnumber</th>
+					<th>age</th>
+					<th>mobile number</th>
+					<th>email address</th>
+					<th>address</th>
+					<th colspan="2">operations</th>
+				</tr> <!---->
+				<tbody>
+					{% for i in info %}
+					<tr>
+						<td>{{i.id}}</td>
+						<td>{{i.name}}</td>
+						<td>{{i.rollnum}}</td>
+						<td>{{i.age}}</td>
+						<td>{{i.mobile}}</td>
+						<td>{{i.email}}</td>
+						<td>{{i.address}}</td>
+						<td><a href="{% url 'update' i.id %}" class="btn btn-success">update</td>
+						<td><a href="{% url 'delete' i.id %}" class="btn btn-danger">delete</td>
+					</tr>
+					{% endfor %}
+				</tbody>
+			</thead>
+			
+		</table>
+	</div>
+</body>
+</html>
